@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <link href="/static/img/favicon.ico" rel="icon">
+        <link href="/static/styles.css" rel="stylesheet">
+        <script src="/static/script.js"></script>
+
+        <title>Contacts: {% block title %}{% endblock %}</title>
+    </head>
+
+    <body class="h-full bg-gray-50 dark:bg-gray-900">
+        <nav class="border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-800 border-b shadow-lg">
+            <div class="mx-2 max-w-auto px-2 sm:px-6 lg:px-8">
+                <div class="relative flex h-14 items-center justify-between">
+                    <div class="flex flex-1 items-center justify-between">
+                        {% if session["user_id"] %}
+                            <!--Navbar when the user logged in-->
+                            <!--Logo-->
+                            <div class="flex">
+                                <div>
+                                    <img id="logo" class="h-10 w-auto" src="/static/img/logo.png" alt="contacts-logo-light">
+                                </div>                 
+                            </div>
+                            <!--Dark mode button and Login/Signup-->
+                            <div class="absolute inset-y-0 right-0 flex items-center sm:static">
+                                <div class="block">
+                                    <div class="flex items-center">
+                                        <!-- Dark Mode Button -->
+                                        <div class="flex flex-shrink-0 items-center">
+                                            <button id="modoBoton" class="h-10 w-10 rounded-lg hover:bg-slate-200 hover:shadow-inner dark:hover:bg-slate-500 dark:hover:shadow-inner">
+                                                <img id="modoImagen" class="h-8 w-8 ml-1" src="/static/img/dark-mode.png" alt="dark-mode">
+                                            </button>
+                                        </div>
+                                        <!-- Options dropdown -->
+                                        <div class="relative mx-2">
+                                            <div>
+                                                <button type="button" id="config-menu-button" class="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-expanded="false" aria-haspopup="true">
+                                                    <img id="config-img" class="h-8 w-8 rounded-full border-none" src="/static/img/config-lightmode.png" alt="config-light">
+                                                </button>
+                                            </div>  
+
+                                            <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="config-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                                <!-- Active: "bg-gray-100", Not Active: "" -->
+                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Order by</a>
+                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Delete Account</a>
+                                            </div>
+                                        </div>
+                                        <!-- Profile dropdown -->
+                                        <div class="relative mx-2">
+                                            <div>
+                                                <button type="button" id="profile-menu-button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-expanded="false" aria-haspopup="true">
+                                                    <img class="h-10 w-10 rounded-full" src="/static/img/walter.jpg" alt="profile_pic">
+                                                </button>
+                                            </div>  
+
+                                            <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="profile-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                                <!-- Active: "bg-gray-100", Not Active: "" -->
+                                                <a href="/logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Log out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <!--Navbar when signup or login-->
+                            <!--Logo-->
+                            <div class="flex flex-shrink-0 items-center mr-3">
+                                <div class="mr-3">
+                                    <img id="logo" class="h-10 w-auto" src="/static/img/logo.png" alt="contacts-logo-light">
+                                </div>                 
+                            </div>
+                            <!--Dark mode button and Login/Signup-->
+                            <div class="absolute inset-y-0 right-0 flex items-end sm:static sm:inset-auto sm:ml-4 sm:pr-0">
+                                <div class="block sm:ml-6 sm:block">
+                                    <div class="flex space-x-2">
+                                        <div class="flex flex-shrink-0 items-center">
+                                            <button id="modoBoton" class="h-10 w-10 rounded-lg hover:bg-slate-200 hover:shadow-inner dark:hover:bg-slate-500 dark:hover:shadow-inner">
+                                                <img id="modoImagen" class="h-8 w-8 ml-1" src="/static/img/dark-mode.png" alt="dark-mode">
+                                            </button>
+                                        </div>               
+                                        <a href="/signup" class="text-black rounded-md px-3 py-2 text-lg font-bold hover:bg-slate-200 hover:shadow-inner dark:text-white dark:hover:bg-slate-500 dark:hover:shadow-inner">Sign Up</a>
+                                        <a href="/login" class="text-black rounded-md px-3 py-2 text-lg font-bold hover:bg-slate-200 hover:shadow-inner dark:text-white dark:hover:bg-slate-500 dark:hover:shadow-inner">Login</a>
+                                    </div>
+                                  </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="relative h-auto w-auto">
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+</html>

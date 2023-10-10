@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Contact
+{% endblock %}
+
+
+{% block main %}
+    <!--Contact Form-->
+    <div id="newContact" class="flex flex-col justify-center space-y-2 h-auto w-auto py-2 px-2 dark:bg-gray-800 dark:shadow-xl">
+        <div class="flex justify-center m-2 p-2">
+            <h1 class="text-4xl font-bold dark:text-white">Edit Contact</h1>
+        </div>
+        <div class="flex justify-center w-auto">
+            <form action="/edit_contact" method="post">
+                <!--Contact id-->
+                <input type="hidden" name="contact_id" value="{{ contact_id }}">
+                <!--Name-->
+                <div class="flex items-center py-1 m-1">
+                    <img src="/static/img/contact-name.png" class="h-7 w-7 rounded-full mr-1"></img>
+                    <input type="text" required id="name" placeholder="Name" name="name" value="{{ contact_name }}" class="h-auto w-auto border-2 px-2 py-1 mb-1 shadow-md rounded-lg border-slate-600">
+                </div>
+                <!--Lastname-->
+                <div class="flex items-center py-1 m-1">
+                    <span class="h-7 w-7 mr-1"></span>
+                    <input type="text" id="lastName" name="lastname" placeholder="Lastname" value="{{ contact_lastname }}" class="h-auto w-auto border-2 px-2 py-1 mb-1 shadow-md rounded-lg border-slate-600">
+                </div>
+                <!--Phone Number-->
+                <div class="flex items-center py-1 m-1">
+                    <img src="/static/img/phone.png" class="h-7 w-7 rounded-full mr-1"></img>
+                    <input type="text" required id="phoneNumber" name="phonenumber" placeholder="Phone Number" value="{{ contact_phonenumber }}" class="h-auto w-auto border-2 px-2 py-1 mb-1 shadow-md rounded-lg border-slate-600">
+                </div>
+                <!--Email-->
+                <div class="flex items-center py-1 m-1">
+                    <img src="/static/img/email.png" class="h-7 w-7 rounded-full mr-1"></img>
+                    <input type="text" id="email" name="email" placeholder="Email" value="{{ contact_email }}" class="h-auto w-auto border-2 px-2 py-1 mb-1 shadow-md rounded-lg border-slate-600">
+                </div>
+                <!--Address-->
+                <div class="flex items-center py-1 m-1">
+                    <img src="/static/img/address.png" class="h-8 w-7 rounded-full mr-1"></img>
+                    <input type="text" id="address" name="address" placeholder="Address" value="{{ contact_address }}" class="h-auto w-auto border-2 px-2 py-1 mb-1 shadow-md rounded-lg border-slate-600">
+                </div>             
+                <!--Birthday-->
+                <div class="flex items-center py-1 m-1">
+                    <img src="/static/img/birthday.png" class="h-7 w-7 rounded-full mr-1"></img>
+                    <input type="text" id="birthday" name="birthday" placeholder="Birthday (mm/dd/yyy)" value="{{ contact_birthday }}" class="h-auto w-auto border-2 px-2 py-1 mb-1 shadow-md rounded-lg border-slate-600">  
+                </div>
+                <!--Button-->
+                <div class="flex justify-center items-center py-1 m-1">
+                    <a href="/" class="h-auto w-auto p-2 m-2 border-2 shadow-md rounded-lg border-slate-600 font-semibold hover:bg-slate-400 hover:shadow-inner transition-all duration-300 delay-75 ease-in-out hover:scale-110 dark:bg-white dark:hover:bg-slate-500 dark:shadow-inner dark:hover:text-white dark:border-none">Back</a>
+                    <button type="submit" id="editContact" class="h-auto w-auto p-2 m-2 border-2 shadow-md rounded-lg border-slate-600 font-semibold hover:bg-slate-400 hover:shadow-inner transition-all duration-300 delay-75 ease-in-out hover:scale-110 dark:bg-white dark:hover:bg-slate-500 dark:shadow-inner dark:hover:text-white dark:border-none">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

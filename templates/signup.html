@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block main %}
+    <div class="block">
+        <div class="flex justify-center m-2 p-2">
+            <h1 class="text-6xl font-bold dark:text-white">Welcome to Contacts</h1>
+        </div>
+        <div class="flex justify-center">
+            <div class="mx-auto flex flex-col justify-start space-y-4 h-auto w-64 m-2 py-2 rounded-lg shadow-xl bg-white dark:bg-gray-800 dark:shadow-xl">
+                <div class="container"> 
+                    <form action="/signup" method="post" enctype="multipart/form-data">
+                        <!--Profile Image-->
+                        <div class="flex flex-col items-center m-1">
+                            <img id="profile-pic" src="/static/img/profile.png" alt="profile" class="h-36 w-36 rounded-full my-2">
+                            <label for="input-file" class="block w-32 bg-gray-400 text-slate-800 px-2 py-1 mx-2 my-auto font-semibold rounded-lg cursor-pointer shadow-lg hover:bg-gray-300 dark:bg-white dark:hover:bg-slate-500 dark:shadow-inner dark:hover:text-white dark:border-none">Upload Photo</label>
+                            <input type="file" id="input-file" name="input-file" accept="img/jpeg, img/png, img/jpg" class="hidden">
+                        </div>
+                        <!--Username-->
+                        <div class="flex flex-col items-center py-1 m-1">
+                            <input type="text" required id="username" placeholder="Username" name="username" class="h-auto w-auto border-2 px-2 py-1 m-1 shadow-lg rounded-lg border-slate-600">
+                        </div>
+                        <!--Password-->
+                        <div class="flex flex-col items-center py-1 m-1">
+                            <input type="password" required id="password" name="password" placeholder="Password" class="h-auto w-auto border-2 px-2 py-1 m-1 shadow-lg rounded-lg border-slate-600">
+                        </div>
+                        <!--Confirm Password-->
+                        <div class="flex flex-col items-center py-1 m-1">
+                            <input type="password" required id="confirmpassword" name="confirmation" placeholder="Confirm Password" class="h-auto w-auto border-2 px-2 py-1 m-1 shadow-lg rounded-lg border-slate-600">
+                        </div>
+                        <!--Submit Button-->
+                        <div class="flex flex-col items-center py-1 m-1">
+                            <button type="submit" class="h-auto w-auto p-2 m-2 border-2 shadow-lg rounded-lg border-slate-600 font-semibold hover:bg-slate-400 hover:shadow-inner transition-all duration-300 ease-in-out hover:scale-110 dark:bg-white dark:hover:bg-slate-500 dark:shadow-inner dark:hover:text-white dark:border-none">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
